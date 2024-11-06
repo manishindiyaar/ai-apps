@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Chatbot</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Tell me ">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        document.getElementById('send-button').onclick = function() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput) {
+                const chatBox = document.getElementById('chat-box');
+                chatBox.innerHTML += `<div class="user-message">You: ${userInput}</div>`;
+                document.getElementById('user-input').value = '';
+
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatBox.innerHTML += `<div class="bot-message">Bot: ${data.response}</div>`;
+                    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+                });
+            }
+        };
+    </script>
+</body>
+</html> 

@@ -1,0 +1,63 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    margin: 0;
+    padding: 20px;
+    color: #fff; /* White text for better contrast */
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(34, 33, 33, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#chat-box {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f9f9f9; /* Light background for chat box */
+    border-radius: 5px;
+}
+
+.user-message {
+    text-align: right;
+    color: #2575fc; /* User message color */
+    font-weight: bold;
+}
+
+.bot-message {
+    text-align: left;
+    color: #6a11cb; /* Bot message color */
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: calc(100% - 100px); /* Full width minus button width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', monospace; /* Coding font */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2575fc; /* Button color */
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #6a11cb; /* Button hover color */
+}
